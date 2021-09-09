@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <!-- Start Constraint Layout !! -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            style="@style/txt_calculate_style"
+            android:layout_marginBottom="40sp"
+            android:text="@string/txt_testing_componentsStr" />
+
+        <EditText
+            android:id="@+id/etxt_first_value"
+            style="@style/etxt_calculate_style"
+            android:hint="@string/etxt_imput_first_valueStr"
+            android:inputType="number"
+            android:maxLength="5" />
+
+        <EditText
+            android:id="@+id/etxt_second_value"
+            style="@style/etxt_calculate_style"
+            android:layout_marginBottom="20sp"
+            android:hint="@string/etxt_imput_second_valueStr"
+            android:inputType="number"
+            android:maxLength="5" />
+
+        <Button
+            android:onClick="funCalcSum"
+            android:id="@+id/btn_calculate_sum"
+            style="@style/buttons_calculate_style"
+            android:text="@string/btn_calculate_sumStr" />
+
+        <Button
+            android:id="@+id/btn_calculate_sub"
+            style="@style/buttons_calculate_style"
+            android:text="@string/btn_calculate_subStr" />
+
+        <Button
+            android:id="@+id/btn_calculate_div"
+            style="@style/buttons_calculate_style"
+            android:text="@string/btn_division_subStr" />
+
+        <Button
+            android:id="@+id/btn_calculate_mult"
+            style="@style/buttons_calculate_style"
+            android:layout_marginBottom="40sp"
+            android:text="@string/btn_division_multStr" />
+
+        <TextView
+            android:id="@+id/txt_result"
+            style="@style/txt_calculate_style"
+            android:text="@string/txt_resultStr" />
+
+    </LinearLayout>
+    <!-- Start Linear Layout !! -->
+</ScrollView>

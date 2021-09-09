@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">New lesson</string>
+    <string name="txt_testing_componentsStr">Testing components rs</string>
+    <string name="btn_calculate_sumStr">Sum</string>
+    <string name="btn_calculate_subStr">Subtraction</string>
+    <string name="txt_resultStr">Result</string>
+    <string name="etxt_imput_first_valueStr">Imput the first Value</string>
+    <string name="etxt_imput_second_valueStr">Imput the first Value</string>
+    <string name="btn_division_subStr">Division</string>
+    <string name="btn_division_multStr">Multiplication</string>
+</resources>
