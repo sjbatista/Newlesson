@@ -45,9 +45,9 @@ public class Calculate extends AppCompatActivity {
         dbTest = getSharedPreferences("dbTest", Context.MODE_PRIVATE);
 
         sumClicked = dbTest.getBoolean("sumClicked", false);
-        subClicked = dbTest.getBoolean("sumClicked", false);
-        divClicked = dbTest.getBoolean("sumClicked", false);
-        multClicked = dbTest.getBoolean("sumClicked", false);
+        subClicked = dbTest.getBoolean("subClicked", false);
+        divClicked = dbTest.getBoolean("divClicked", false);
+        multClicked = dbTest.getBoolean("multClicked", false);
 
         result.setText(dbTest.getString("result", String.valueOf(R.string.txt_resultStr)));
 
@@ -70,65 +70,122 @@ public class Calculate extends AppCompatActivity {
             calcMult.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
             calcMult.setText("Mult clicked");
         }
-
-
-        calcSub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int a = Integer.parseInt(firstValue.getText().toString());
-                int b = Integer.parseInt(secondValue.getText().toString());
-                String resultString = Integer.toString(Calculations.sub(a, b));
-                result.setText(resultString);
-                Log.i("Clicked", "Button sub was clicked");
-            }
-        });
-
-        calcDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int a = Integer.parseInt(firstValue.getText().toString());
-                int b = Integer.parseInt(secondValue.getText().toString());
-                String resultString = Integer.toString(Calculations.div(a, b));
-                result.setText(resultString);
-                Log.i("Clicked", "Button div was clicked");
-            }
-        });
-
-        calcMult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int a = Integer.parseInt(firstValue.getText().toString());
-                int b = Integer.parseInt(secondValue.getText().toString());
-                String resultString = Integer.toString(Calculations.mult(a, b));
-                result.setText(resultString);
-                Log.i("Clicked", "Button mult was clicked");
-            }
-        });
-
     }
 
     @SuppressLint("ResourceType")
-    public void funCalcSum(View view){
-
+    public void funCalcSum(View view) {
         if (!sumClicked) {
             Log.i("Click", "Button sum was clicked");
-            calcSum.setBackgroundTintList(ContextCompat.getColorStateList(this,R.color.black));
+            calcSum.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
             calcSum.setText("Sum clicked");
-            sumClicked=true;
+            sumClicked = true;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.sum(a, b));
+            result.setText(resultString);
             SharedPreferences.Editor editor = dbTest.edit();
-            editor.putBoolean("sumClicked",true);
+            editor.putBoolean("sumClicked", true);
             editor.apply();
-
-        }else{
-            calcSum.setBackgroundTintList(ContextCompat.getColorStateList(this, R.drawable.bg_button_accent));
-            calcSum.setText(R.string.btn_calculate_sumStr);
+        } else {
             Log.i("Click", "Button sum was 'Unclicked'");
+            calcSum.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_500));
+            calcSum.setText(R.string.btn_calculate_sumStr);
+            sumClicked = false;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.sum(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("sumClicked", false);
+            editor.apply();
         }
+    }
 
-        int a = Integer.parseInt(firstValue.getText().toString());
-        int b = Integer.parseInt(secondValue.getText().toString());
-        String resultString = Integer.toString(Calculations.sum(a, b));
-        result.setText(resultString);
+    @SuppressLint("ResourceType")
+    public void funCalcSub(View view) {
+        if (!subClicked) {
+            Log.i("Click", "Button sub was clicked");
+            calcSub.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
+            calcSum.setText("Sub clicked");
+            subClicked = true;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.sub(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("subClicked", true);
+            editor.apply();
+        } else {
+            Log.i("Click", "Button sub was 'Unclicked'");
+            calcSub.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_500));
+            calcSub.setText(R.string.btn_calculate_subStr);
+            subClicked = false;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.sub(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("subClicked", false);
+            editor.apply();
+        }
+    }
+
+    @SuppressLint("ResourceType")
+    public void funCalcDiv(View view) {
+        if (!divClicked) {
+            Log.i("Click", "Button div was clicked");
+            calcDiv.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
+            calcDiv.setText("Div clicked");
+            divClicked = true;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.div(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("divClicked", true);
+            editor.apply();
+        } else {
+            Log.i("Click", "Button div was 'Unclicked'");
+            calcDiv.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_500));
+            calcDiv.setText(R.string.btn_calculate_divStr);
+            divClicked = false;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.div(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("divClicked", false);
+            editor.apply();
+        }
+    }
+
+    @SuppressLint("ResourceType")
+    public void funCalcMult(View view) {
+        if (!multClicked) {
+            Log.i("Click", "Button mult was clicked");
+            calcMult.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.black));
+            calcMult.setText("Mult clicked");
+            multClicked = true;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.mult(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("multClicked", true);
+            editor.apply();
+        } else {
+            Log.i("Click", "Button mult was 'Unclicked'");
+            calcMult.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_500));
+            calcMult.setText(R.string.btn_calculate_multStr);
+            multClicked = false;
+            int a = Integer.parseInt(firstValue.getText().toString());
+            int b = Integer.parseInt(secondValue.getText().toString());
+            String resultString = Integer.toString(Calculations.mult(a, b));
+            result.setText(resultString);
+            SharedPreferences.Editor editor = dbTest.edit();
+            editor.putBoolean("multClicked", false);
+            editor.apply();
+        }
     }
 
 

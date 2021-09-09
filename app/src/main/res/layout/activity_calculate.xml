@@ -40,20 +40,23 @@
             android:text="@string/btn_calculate_sumStr" />
 
         <Button
+            android:onClick="funCalcSub"
             android:id="@+id/btn_calculate_sub"
             style="@style/buttons_calculate_style"
             android:text="@string/btn_calculate_subStr" />
 
         <Button
+            android:onClick="funCalcDiv"
             android:id="@+id/btn_calculate_div"
             style="@style/buttons_calculate_style"
-            android:text="@string/btn_division_subStr" />
+            android:text="@string/btn_calculate_divStr" />
 
         <Button
+            android:onClick="funCalcMult"
             android:id="@+id/btn_calculate_mult"
             style="@style/buttons_calculate_style"
             android:layout_marginBottom="40sp"
-            android:text="@string/btn_division_multStr" />
+            android:text="@string/btn_calculate_multStr" />
 
         <TextView
             android:id="@+id/txt_result"
