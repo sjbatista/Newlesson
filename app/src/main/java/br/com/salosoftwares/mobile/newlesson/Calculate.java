@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+//Parei na otimização dos botões
+//preciso reorganizar a identação, usar o conceito de armazenar alguns textos usando arquivo Strings
+//Preciso melhorar a interação de click e unclick
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
